@@ -1,0 +1,5 @@
+edu\icet\crm\Loader.class
+edu\icet\crm\controller\StudentController.class
+edu\icet\crm\service\StudentServiceImpl.class
+edu\icet\crm\model\Student.class
+edu\icet\crm\service\StudentService.class
