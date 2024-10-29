@@ -1,0 +1,99 @@
+<div class="row">
+    <div class="col-lg-12">
+        <div class="container d-flex">
+            <a class="btn btn-success pull-right" [routerLink]="['/add-student']">Add Student</a>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="container">
+            <table class="table-custom table-striped table-hover mb-5">
+                <thead>
+                    <tr>
+                        <th style="width: 15vw;">NIC</th>
+                        <th style="width: 12vw;">FistName</th>
+                        <th style="width: 12vw;">LastName</th>
+                        <th style="width: 5vw;">Age</th>
+                        <th style="width: 9vw;">Gender</th>
+                        <th>Phone</th>
+                        <th style="width: 16vw;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let student of studentDetails">
+                    <tr scope="col">
+                        <td>{{student['nic']}}</td>
+                        <td>{{student['firstName'] ? student['firstName']:"null"}}</td>
+                        <td>{{student['lastName'] ? student['lastName']:"null"}}</td>
+                        <td>{{student['age'] ? student['age']:"null"}}</td>
+                        <td>{{student['gender'] ? student['gender']:"null"}}</td>
+                        <td>{{student['phone'] ? student['phone']:"null"}}</td>
+                        <td>
+                            <i class="bx bxs-show avatar me-lg-5" role="button" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="getStudent(student['nic'])"></i>
+                            <i class="bx bxs-message-square-edit avatar me-lg-5" role="button"></i>
+                            <i class="bx bxs-trash avatar" role="button"></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5 fw-bold" id="exampleModalLabel">Student Details</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-lg-6 d-flex flex-column justify-content-center align-items-center">
+              <div class="pro-pic d-flex justify-content-center align-items-center">
+                <img [src]="imgRecourse" class="pro-pic-frame" alt="">
+              </div>
+              <div class="name mt-3 align-content-center">
+                <h3 class="fw-semibold text-center">{{student.firstName}}  {{student.lastName}}</h3>
+              </div>
+            </div>
+        
+            <!-- Right Column: Data Rows -->
+            <div class="col-lg-6 d-flex flex-column gap-3 justify-content-center">
+              <div class="d-flex">
+                <span class="fw-semibold fs-6">NIC :-</span>
+                <span class="ms-3">{{student.nic}}</span>
+              </div>
+              <div class="d-flex">
+                <span class="fw-semibold fs-6">Address :-</span>
+                <span class="ms-3">{{student.address}}</span>
+              </div>
+              <div class="d-flex">
+                <span class="fw-semibold fs-6">Email :-</span>
+                <span class="ms-3">{{student.email}}</span>
+              </div>
+              <div class="d-flex">
+                <span class="fw-semibold fs-6">Phone :-</span>
+                <span class="ms-3">{{student.phone}}</span>
+              </div>
+              <div class="d-flex">
+                <span class="fw-semibold fs-6">DO.Birth :-</span>
+                <span class="ms-3">{{student.dob}}</span>
+              </div>
+              <div class="d-flex">
+                <span class="fw-semibold fs-6">Gender :-</span>
+                <span class="ms-3">{{student.gender}}</span>
+              </div>
+              <div class="d-flex">
+                <span class="fw-semibold fs-6">Age :-</span>
+                <span class="ms-3">{{student.age}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        </div>
+      </div>
+    </div>
+</div>

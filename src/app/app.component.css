@@ -1,0 +1,9 @@
+.bg-img {
+  height: 100%;
+  width: 100vw;
+  background-image: url("../../../student_register_CRUD/public/assets/img/set-bright-school-stationery-orange-wall_197531-12538.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+}
+
